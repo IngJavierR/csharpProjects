@@ -1,1 +1,7 @@
 c:\users\javierwindows10\documents\visual studio 2015\Projects\FirstProjectPractice\FirstProjectPractice\bin\Debug\FirstProjectPractice.exe.config
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\bin\Debug\FirstProjectPractice.exe.config
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\bin\Debug\FirstProjectPractice.exe
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\bin\Debug\FirstProjectPractice.pdb
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\obj\Debug\FirstProjectPractice.csprojResolveAssemblyReference.cache
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\obj\Debug\FirstProjectPractice.exe
+C:\Repositorios\csharpProjects\FirstProjectPractice\FirstProjectPractice\obj\Debug\FirstProjectPractice.pdb
