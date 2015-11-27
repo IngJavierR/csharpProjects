@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSourceIkos">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=localhost;Initial Catalog=IKOSSPEI</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>613c1fe6-96ae-4210-a21e-b97152f3a6a4</DataSourceID>
+</RptDataSource>
