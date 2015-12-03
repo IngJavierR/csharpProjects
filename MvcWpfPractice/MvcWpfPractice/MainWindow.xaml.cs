@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
+using MvcWpfPractice.Controllers;
+using MvcWpfPractice.Model;
 
 namespace MvcWpfPractice
 {
@@ -8,9 +9,17 @@ namespace MvcWpfPractice
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        //Controller
+        WindowController _windowController;
         public MainWindow()
         {
             InitializeComponent();
+
+            GetEmployees employees = GetEmployees.LoadEmployees();
+
+            _windowController = new WindowController(this, employees);
+
+            base.DataContext = employees;
         }
     }
 }
