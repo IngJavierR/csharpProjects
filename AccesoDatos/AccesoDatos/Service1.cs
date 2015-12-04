@@ -27,14 +27,15 @@ namespace AccesoDatos
     public interface IService1
     {
         [OperationContract]
-        string GetData(ClientInfo clientInfo);
+        ClientData GetData(ClientInfo clientInfo);
     }
 
     public class Service1 : IService1
     {
-        public string GetData(ClientInfo clientInfo)
+        public ClientData GetData(ClientInfo clientInfo)
         {
-            return string.Format("You entered: ");
+            var clientInformation = new ClientInformation(clientInfo.IdCliente, clientInfo.Month, clientInfo.Year);
+            return clientInformation.GetClientInfo();
         }
     }
 
@@ -53,13 +54,15 @@ namespace AccesoDatos
 
         public ClientData GetClientInfo()
         {
-            
+            var info = new GetDbInfo(DbInfo.Sumatoria);
+            var result = info.Consulta<string>();
+            return new ClientData{ IdCliente = 1, Apellido = result, Month = 12, Year = 2012, Edad = 30, Nombre = result };
         }
     }
 
     public class GetDbInfo
     {
-        private string _connectionString ;
+        private readonly string _connectionString ;
         private string _query;
 
         public GetDbInfo(DbInfo dbInfo)
@@ -67,27 +70,29 @@ namespace AccesoDatos
             switch (dbInfo)
             {
                 case DbInfo.Sumatoria:
-                    _connectionString = "Data Source=(local);Initial Catalog=Northwind;Integrated Security=true";
+                    _connectionString = "Server=localhost;Database=IKOSSPEI;User Id=XYZWIN;Password=XYZWIN;";
                     break;
                 case DbInfo.CantidadesDiferentes:
-                    _connectionString = "Data Source=(local);Initial Catalog=Northwind;Integrated Security=true";
+                    _connectionString = "Server=localhost;Database=IKOSSPEI;User Id=XYZWIN;Password=XYZWIN;";
                     break;
                 case DbInfo.CantidadesIguales:
-                    _connectionString = "Data Source=(local);Initial Catalog=Northwind;Integrated Security=true";
+                    _connectionString = "Server=localhost;Database=IKOSSPID;User Id=XYZWIN;Password=XYZWIN;";
                     break;
                 case DbInfo.InfoClient:
-                    _connectionString = "Data Source=(local);Initial Catalog=Northwind;Integrated Security=true";
+                    _connectionString = "Server=localhost;Database=IKOSSPID;User Id=XYZWIN;Password=XYZWIN;";
                     break;
             }
         }
 
-        public T Consulta<T>()
+        public string Consulta<T>()
         {
             _query = string.Format("SELECT * FROM SPEI_PAGOS WHERE FECHAOPERACION = {0}", 20151203);
+            return Execute();
         }
 
-        private void Execute()
+        private string Execute()
         {
+            var result = "";
             using (var connection = new SqlConnection(_connectionString))
             {
                 SqlDataReader reader = null;
@@ -98,7 +103,7 @@ namespace AccesoDatos
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        Console.WriteLine(reader.GetString(1));
+                        result = (string)reader["RASTREO"];
                     }
                 }
                 catch (Exception ex)
@@ -111,6 +116,7 @@ namespace AccesoDatos
                         reader.Close();
                 }
             }
+            return result;
         }
     }
 
