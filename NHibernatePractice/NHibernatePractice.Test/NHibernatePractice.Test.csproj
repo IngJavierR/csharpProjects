@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2903F0A5-6A27-4AC6-9B61-D6607B8444A1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{369CA976-7272-4DE8-8D35-60B8825BB3C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NHibernatePractice</RootNamespace>
-    <AssemblyName>NHibernatePractice</AssemblyName>
+    <RootNamespace>NHibernatePractice.Test</RootNamespace>
+    <AssemblyName>NHibernatePractice.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,6 +38,10 @@
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,21 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Product.cs" />
-    <Compile Include="NHibernateHelper.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Practice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebasHibernate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Design\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Product.hbm.xml" />
+    <ProjectReference Include="..\NHibernatePractice\NHibernatePractice.csproj">
+      <Project>{2903f0a5-6a27-4ac6-9b61-d6607b8444a1}</Project>
+      <Name>NHibernatePractice</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="hibernate.cfg.xml">
