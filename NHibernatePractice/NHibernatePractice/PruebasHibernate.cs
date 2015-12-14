@@ -21,7 +21,10 @@ namespace NHibernatePractice
             IList<Product> product = query.List<Product>();
             session.Close();
             if (product.Count > 0)
+            {
                 Console.WriteLine("Name: {0}", product[0].Name);
+                Console.WriteLine("Category: {0}", product[0].Category);
+            }
             else
                 Console.WriteLine("No hay registros");
 
@@ -30,7 +33,7 @@ namespace NHibernatePractice
 
         public void SaveProduct()
         {
-            var product = new Product {Category = "Developer", Name = "Prueba", Discontinued = 1};
+            var product = new Product {Category = "Sr Developer", Name = "Prueba", Discontinued = 1};
 
             using (ISession session = NHibernateHelper.GetCurrentESession())
             {
@@ -49,6 +52,7 @@ namespace NHibernatePractice
                     }
                 }
             }
+            Console.Read();
         }
     }
 }

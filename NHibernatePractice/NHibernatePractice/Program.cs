@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using NHibernate;
-using NHibernatePractice.Domain;
-
-namespace NHibernatePractice
+﻿namespace NHibernatePractice
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             PruebasHibernate prueba = new PruebasHibernate();
-            //prueba.GetProduct();
+            prueba.GetProduct();
 
-            prueba.SaveProduct();
+            //prueba.SaveProduct();
         }
     }
 }
