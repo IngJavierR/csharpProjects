@@ -2,15 +2,15 @@
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <session-factory>
     <!--ORACLE-->
-    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+    <!--<property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
     <property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>
     <property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
-    <property name="connection.connection_string">Data Source=192.168.0.163:1521/ORCL;Persist Security Info=True;User ID=XYZWON;Password=XYZWON</property>
+    <property name="connection.connection_string">Data Source=192.168.0.163:1521/ORCL;Persist Security Info=True;User ID=XYZWON;Password=XYZWON</property>-->
     
     <!--SQL-->
-    <!--<property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
     <property name="dialect">NHibernate.Dialect.MsSqlCeDialect</property>
     <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
-    <property name="connection.connection_string">Server=127.0.0.1;Database=IKOSSPID;User Id=XYZWIN;Password=XYZWIN;</property>-->
+    <property name="connection.connection_string">Server=127.0.0.1;Database=IKOSSPID;User Id=XYZWIN;Password=XYZWIN;</property>
   </session-factory>
 </hibernate-configuration>
