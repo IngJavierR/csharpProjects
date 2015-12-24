@@ -3,6 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectPractice", "NinjectPractice\NinjectPractice.csproj", "{DC74F39B-0463-4557-A72A-29E7B1DCCF37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectPracticeTest", "NinjectPracticeTest\NinjectPracticeTest.csproj", "{8A2C1909-17BF-41B4-B190-468C7DDE9FD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{451ECDB3-01D3-4372-8766-D32016F68A74}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +20,10 @@ Global
 		{DC74F39B-0463-4557-A72A-29E7B1DCCF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC74F39B-0463-4557-A72A-29E7B1DCCF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC74F39B-0463-4557-A72A-29E7B1DCCF37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2C1909-17BF-41B4-B190-468C7DDE9FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2C1909-17BF-41B4-B190-468C7DDE9FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2C1909-17BF-41B4-B190-468C7DDE9FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2C1909-17BF-41B4-B190-468C7DDE9FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
