@@ -22,7 +22,7 @@ namespace SocketClient
     public class AsynchronousClient
     {
         // The port number for the remote device.
-        private const int port = 11000;
+        private const int port = 1010;
 
         // ManualResetEvent instances signal completion.
         private static ManualResetEvent connectDone =
@@ -57,7 +57,8 @@ namespace SocketClient
                 connectDone.WaitOne();
 
                 // Send test data to the remote device.
-                Send(client, "This is a test<EOF>");
+                Send(client, @"0004158729|20151224||040014|9999|01|ASDASD|ALEJANDRO RAMOS LARIOS|40|014180605491746187|RALA540710GQ4|ALEJANDRO RAMOS LARIOS|03|5389840300035879|||||||TRASPASO A 5879||0004158729||||||T|||");
+                //Send(client, @"0004158729|20151224||040014|19999|07||ALEJANDRO RAMOS LARIOS|40|014180605491746187|RALA540710GQ4|ALEJANDRO RAMOS LARIOS|03|5389840300035879|||||||TRASPASO A 5879||0004158729||||||T|||");
                 sendDone.WaitOne();
 
                 // Receive the response from the remote device.
