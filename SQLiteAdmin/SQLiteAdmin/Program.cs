@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Data.Linq;
-using System.Data.SQLite;
-using System.Linq;
 using SQLiteAdmin.Db.Entities;
 
 namespace SQLiteAdmin
@@ -10,35 +7,27 @@ namespace SQLiteAdmin
     {
         static void Main()
         {
-            var connection = new SQLiteConnection("Data Source = testDB.db; Version = 3;");
-            var context = new DataContext(connection);
-
-            var employees = context.GetTable<Employee>();
-            
-            foreach (var employee in employees)
+            using (var sqlLite = new SqLiteManager("receive.dat"))
             {
-                Console.WriteLine("Company: {0} - {1} - {2}",
-                    employee.Empid, employee.Name, employee.Title);
+                var toSave = new LogDat()
+                {
+                    ExpectedSize = 1,
+                    FechaOperacion = 20160328,
+                    HoraOperacion = 134510,
+                    Mensaje = "9,8,7,5,4,4,6,76,8,6,6,4,4,34,45,23,64,56,64,5,55",
+                    RealSize = 1,
+                    SizeValid = 1,
+                    StructureValid = 1,
+                    TipoPago = 1
+                };
+                sqlLite.Save(toSave);
+                var resultado = sqlLite.Get<LogDat>();
+                resultado.ForEach(x =>
+                {
+                    Console.WriteLine("Item: {0}", x);
+                });    
             }
-
-            employees.InsertOnSubmit(new Employee
-            {
-                Empid = 2,
-                Name = "Prueba",
-                Title = "TitlePrueba"
-            });
-            context.SubmitChanges();
-            
-
-            var employees2 = context.GetTable<Employee>().ToList();
-
-            foreach (var employee in employees2)
-            {
-                Console.WriteLine("Company: {0} - {1} - {2}",
-                    employee.Empid, employee.Name, employee.Title);
-            }
-
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
